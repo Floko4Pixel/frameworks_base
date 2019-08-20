@@ -8998,6 +8998,62 @@ public final class Settings {
                 "packages_to_clear_data_before_full_restore";
 
         /**
+         * Select various actions for short squeeze gesture
+         *
+         * @hide
+         */
+        public static final String SHORT_SQUEEZE_SELECTION = "short_squeeze_selection";
+
+        /**
+         * Select various actions for long squeeze gesture
+         *
+         * @hide
+         */
+        public static final String LONG_SQUEEZE_SELECTION = "long_squeeze_selection";
+
+        /**
+         * Launch custom application when using the short squeeze feature
+         *
+         * @hide
+         */
+        public static final String SHORT_SQUEEZE_CUSTOM_APP = "short_squeeze_custom_app";
+
+        /**
+         * Display friendly name of custom application launched when
+         * using the short queeze feature (active edge)
+         * @hide
+         */
+        public static final String SHORT_SQUEEZE_CUSTOM_APP_FR_NAME = "short_squeeze_custom_app_fr_name";
+
+        /**
+         * Launch custom application when using the long squeeze feature
+         *
+         * @hide
+         */
+        public static final String LONG_SQUEEZE_CUSTOM_APP = "long_squeeze_custom_app";
+
+        /**
+         * Display friendly name of custom application launched when
+         * using the long squeeze feature (active edge)
+         * @hide
+         */
+        public static final String LONG_SQUEEZE_CUSTOM_APP_FR_NAME = "long_squeeze_custom_app_fr_name";
+
+        /**
+         * Launch custom activity when using the short squeeze feature (active edge)
+         *
+         * @hide
+         */
+        public static final String SHORT_SQUEEZE_CUSTOM_ACTIVITY = "short_squeeze_custom_activity";
+
+        /**
+         * Launch custom activity when using the long squeeze feature (active edge)
+         *
+         * @hide
+         */
+        public static final String LONG_SQUEEZE_CUSTOM_ACTIVITY = "long_squeeze_custom_activity";
+
+        /**
          * Boolean value whether to link ringtone and notification volume
          * @hide
          */
