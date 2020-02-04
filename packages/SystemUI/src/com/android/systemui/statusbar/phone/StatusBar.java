@@ -264,6 +264,8 @@ import com.android.systemui.util.InjectionInflationController;
 import com.android.systemui.util.leak.RotationUtils;
 import com.android.systemui.volume.VolumeComponent;
 
+import com.google.android.systemui.keyguard.KeyguardSliceProviderGoogle;
+
 import lineageos.providers.LineageSettings;
 
 import java.io.FileDescriptor;
@@ -810,7 +812,7 @@ public class StatusBar extends SystemUI implements DemoMode,
         mNavigationBarSystemUiVisibility = mNavigationBarController.createSystemUiVisibility();
         mActivityIntentHelper = new ActivityIntentHelper(mContext);
 
-        mSliceProvider = KeyguardSliceProvider.getAttachedInstance();
+        mSliceProvider = KeyguardSliceProviderGoogle.getAttachedInstance();
         if (mSliceProvider != null) {
             mSliceProvider.initDependencies(mMediaManager, mStatusBarStateController,
                     mKeyguardBypassController, DozeParameters.getInstance(mContext));
