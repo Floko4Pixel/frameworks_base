@@ -265,6 +265,8 @@ import com.android.systemui.util.leak.RotationUtils;
 import com.android.systemui.volume.VolumeComponent;
 
 import com.google.android.systemui.keyguard.KeyguardSliceProviderGoogle;
+import com.google.android.systemui.NotificationLockscreenUserManagerGoogle;
+import com.google.android.systemui.smartspace.SmartSpaceController;
 
 import lineageos.providers.LineageSettings;
 
@@ -956,6 +958,7 @@ public class StatusBar extends SystemUI implements DemoMode,
         int disabledFlags2 = result.mDisabledFlags2;
         Dependency.get(InitController.class).addPostInitTask(
                 () -> setUpDisableFlags(disabledFlags1, disabledFlags2));
+        ((NotificationLockscreenUserManagerGoogle) Dependency.get(NotificationLockscreenUserManager.class)).updateAodVisibilitySettings();
 
         final TunerService tunerService = Dependency.get(TunerService.class);
         tunerService.addTunable(this, SCREEN_BRIGHTNESS_MODE);
@@ -3004,6 +3007,7 @@ public class StatusBar extends SystemUI implements DemoMode,
         for (Map.Entry<String, ?> entry : Prefs.getAll(mContext).entrySet()) {
             pw.print("  "); pw.print(entry.getKey()); pw.print("="); pw.println(entry.getValue());
         }
+        SmartSpaceController.get(this.mContext).dump(fd, pw, args);
 
         if (mFlashlightController != null) {
             mFlashlightController.dump(fd, pw, args);
@@ -3300,6 +3304,8 @@ public class StatusBar extends SystemUI implements DemoMode,
         if (mWallpaperSupported) {
             mWallpaperChangedReceiver.onReceive(mContext, null);
         }
+
+        SmartSpaceController.get(this.mContext).reloadData();
     }
 
     /**
